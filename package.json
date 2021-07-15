@@ -1,0 +1,27 @@
+{
+  "name": "izumi",
+  "version": "1.0.0",
+  "description": "Um simples bot de música para Discord",
+  "main": "src/izumi.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "run": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JVOPINHO/Izumi.git"
+  },
+  "author": "JVOPINHO",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JVOPINHO/Izumi/issues"
+  },
+  "homepage": "https://github.com/JVOPINHO/Izumi#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "discord.js": "^12.5.3",
+    "ws": "^7.4.4"
+  }
+}

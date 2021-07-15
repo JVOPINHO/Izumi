@@ -1,0 +1,21 @@
+const Command = require("../Command")
+
+module.exports = class EvalCommand extends Command {
+    constructor(client) {
+        super({
+            name: "",
+            description: "",
+            aliases: [],
+            dirname: __dirname,
+            subcommands: [],
+            cooldown: 0,
+            explaples: [],
+            permissions: {
+                Discord: [],
+                Bot: [],
+                me: []
+            },
+            requires: {}
+        })
+    }
+}
