@@ -40,7 +40,43 @@ if(!perms.has("SEND_MESSAGES")) return;
     )
   }
 
+  let player = client.music.players.get(message.guild.id)
+
+  if(command.requires.memberVoiceChannel) {
+    if(!client.music.idealNodes[0]) return message.quote(new Discord.MessageEmbed()
+      .setColor("RED")
+      .setDescription("**Estou sem conexão com meus nodes! Tente novamente depois.**")
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      .setTimestamp()
+    )
+    const channel = message.member.voice.channel
+    if(!channel) return message.quote(new Discord.MessageEmbed()
+      .setColor("RED")
+      .setDescription("**Você precisa estar em um canal de voz!**")
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      .setTimestamp()
+    )
+    if(player && message.guild.me.voice.channel && message.guild.me.voice.channel.id !== channel.id) return message.quote(new Discord.MessageEmbed()
+      .setColor("RED")
+      .setDescription("**Você precisa estar no mesmo canal de voz que o meu!**")
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      .setTimestamp()
+    )
+    if(!channel.permissionsFor(client.user.id).has(1048576)) return message.quote(new Discord.MessageEmbed()
+      .setColor("RED")
+      .setDescription("**Eu não tenho permissão para conectar no seu canal de voz!**")
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      .setTimestamp()
+    )
+    if(!channel.permissionsFor(client.user.id).has(2097152)) return message.quote(new Discord.MessageEmbed()
+      .setColor("RED")
+      .setDescription("**Eu não tenho permissão para falar no seu canal de voz!**")
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+      .setTimestamp()
+    )
+  }
+
   try {
-    command.run(message, args);
+    command.run(message, args, player);
   } catch (_) {};
 })

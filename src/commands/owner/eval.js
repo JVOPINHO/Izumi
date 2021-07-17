@@ -37,5 +37,5 @@ module.exports = class EvalCommand extends Command {
 }
 
 async function resultado(client, message, result) {
-    message.quote(`${result}`.replace(client.token, "No9-iu8w0Jha9US9H-aJplkdsj.jshuss9DsAShsahp989Sf4k3fd/").slice(0, 1990), {code: "js"})
+    message.quote(`${result}`.replace(client.token, "🙃").slice(0, 1990), {code: "js"})
 }

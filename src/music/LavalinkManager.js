@@ -19,7 +19,7 @@ class Manager extends EventEmitter {
         if (options.send) this.send = options.send
         for (const node of nodes) this.createNode(node)
         setInterval(() => {
-            for (const node of Array.from(this.nodes, ([a, b]) => b)) {
+            for (const node of Array.from(this.nodes, ([a, b]) => b).filter(n => n.connected)) {
                 node.send({ op: "ping" })
             }
         }, 3000)

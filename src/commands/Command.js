@@ -1,3 +1,9 @@
+const Discord = require("discord.js")
+
+/**
+* @param {Client} client 
+*/
+
 module.exports = class Command {
     constructor({
         name = null,
@@ -10,7 +16,12 @@ module.exports = class Command {
         permissions = {},
         requires = {}
     }, client) {
+        /**
+        * Discord Client
+        * @type {Client}
+        */
         this.client = client
+        
         this.name = name
         this.description = description
         this.aliases = aliases

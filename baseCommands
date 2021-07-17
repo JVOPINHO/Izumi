@@ -1,4 +1,5 @@
 const Command = require("../Command")
+const Discord = require("discord.js")
 
 module.exports = class EvalCommand extends Command {
     constructor(client) {
@@ -16,6 +17,6 @@ module.exports = class EvalCommand extends Command {
                 me: []
             },
             requires: {}
-        })
+        }, client)
     }
 }
