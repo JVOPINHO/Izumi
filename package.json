@@ -22,7 +22,10 @@
   "homepage": "https://github.com/JVOPINHO/Izumi#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "child_process": "^1.0.2",
+    "discord-buttons": "^4.0.0",
     "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "ofira-sharder": "^1.0.2",
     "pretty-ms": "^7.0.1",

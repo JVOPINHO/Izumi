@@ -1,14 +1,14 @@
-const app = require("express")()
-app.get("/", (req, res) => {
-    res.send("Ok")
-})
+// const app = require("express")()
+// app.get("/", (req, res) => {
+//     res.send("Ok")
+// })
 
-app.listen(3000, "0.0.0.0")
+// app.listen(8080, "0.0.0.0")
 const Manager = require("./system/cluster/ClusterManager");
 let {token} = require("./handlers/config");
 const manager = new Manager(`${__dirname}/Izumi.js`,{
-    totalShards: 3,
-    totalClusters: 2, 
+    totalShards: 1,
+    totalClusters: 1, 
     mode: "process",
     token: token
 })

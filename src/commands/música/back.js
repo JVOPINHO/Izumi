@@ -4,9 +4,9 @@ const Discord = require("discord.js")
 module.exports = class PlayCommand extends Command {
     constructor(client) {
         super({
-            name: "skip",
-            description: "Pule a música que está sendo tocada",
-            aliases: ["s", "pular"],
+            name: "back",
+            description: "Volte a música anterior",
+            aliases: ["voltar"],
             dirname: __dirname,
             cooldown: 3000,
             requires: {
@@ -17,7 +17,8 @@ module.exports = class PlayCommand extends Command {
     }
 
     async run(message, args, player) {
-        player.skip()
-        message.react('⏭')
+        if(!player.queue[player.queueIndex - 1]) return
+        player.back()
+        message.react('⏮')
     }
 }

@@ -42,6 +42,14 @@ if(!perms.has("SEND_MESSAGES")) return;
 
   let player = client.music.players.get(message.guild.id)
 
+  if(command.requires.player && !player) return message.quote(new Discord.MessageEmbed()
+    .setColor("RED")
+    .setDescription("**Eu não tenho um player nesse servidor!**")
+    .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+    .setTimestamp().setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+    .setTimestamp()
+  ) 
+  
   if(command.requires.memberVoiceChannel) {
     if(!client.music.idealNodes[0]) return message.quote(new Discord.MessageEmbed()
       .setColor("RED")
